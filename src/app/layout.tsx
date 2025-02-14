@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
 import "./globals.css";
+import Menu from "@/components/menu/Menu";
+
 
 
 
@@ -13,10 +15,11 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  return (
+
+    return (
     <html lang="en">
       <body>
-        {children}
+      {children}
       </body>
     </html>
   );

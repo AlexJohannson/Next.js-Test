@@ -2,12 +2,13 @@ import axios from "axios";
 import {IUserWithTokens} from "@/models/authModel/IUserWithTokens";
 import {getCookie, setCookie} from "@/services/serviceAuth/api.helper";
 import {ITokenPair} from "@/models/authModel/ITokenPair";
+import {baseUrl} from "@/services/api.service";
 
 
 
 
 export const axiosInstanceAuth = axios.create({
-    baseURL: 'https://dummyjson.com',
+    baseURL: baseUrl,
     headers: {},
 });
 

@@ -4,6 +4,7 @@ import Cookies from 'js-cookie';
 import Link from 'next/link';
 import {IUser} from "@/models/usersModels/IUser";
 
+
 const Menu = ({user}: {user : IUser}) => {
 
     const [isAuthenticated, setIsAuthenticated] = useState(false);
@@ -26,10 +27,11 @@ const Menu = ({user}: {user : IUser}) => {
             <div>
                  <ul>
                      <li>
-                         <Link href={'/'}>HOME</Link>
+                         <Link href={'/auth'}>HOME</Link>
                      </li>
+
                      <li>
-                         <Link href={'/users'}>USERS</Link>
+                         <Link href={'/auth/users'}>USERS</Link>
                      </li>
                      <li>
                          <Link href={'/recipes'}>RECIPES</Link>
