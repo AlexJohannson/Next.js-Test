@@ -1,64 +1,50 @@
 'use client';
-import React, {useState} from 'react';
-import {IForm} from "@/models/iFormModel/IForm";
-import {loginUser} from "@/services/serviceAuth/api.login.user";
-import {useForm} from "react-hook-form";
-import {IUser} from "@/models/usersModels/IUser";
-import Menu from "@/components/menu/Menu";
+import React, { useState } from 'react';
+import { useRouter } from 'next/navigation';
+import { IForm } from '@/models/iFormModel/IForm';
+import { login } from '@/services/serviceAuthLogin/api.auth.service';
 
+const LoginPage = () => {
+    const [username, setUsername] = useState('');
+    const [password, setPassword] = useState('');
+    const router = useRouter();
 
-
-
-const AuthPage = () => {
-
-    const {handleSubmit, register} = useForm<IForm>({
-        mode: "all",
-
-    });
-    const [isAuthenticated, setIsAuthenticated] = useState(false);
-    const [user, setUser] = useState<IUser | null>(null);
-
-
-
-    const myHandelSubmit = async (data: IForm) => {
-
-        if (data.password.includes(data.username)) {
-            const loginData: IForm = {
-                username: data.username,
-                password: data.password,
-                expiresInMins: 1
+    const handleLogin = async (e: React.FormEvent<HTMLFormElement>) => {
+        e.preventDefault();
+        try {
+            const formData: IForm = {
+                username,
+                password,
+                expiresInMins: 30,
             };
-            try {
-                const loginResponse = await loginUser(loginData);
-                    setIsAuthenticated(true);
-                // @ts-ignore
-                setUser(loginResponse);
-
-
-            } catch (error) {
-                console.error("Error logging in:", error);
-            }
-        } else {
-            console.log("Password does not include username");
+            await login(formData); // Викликає функцію логіну
+            router.push('/'); // Переходимо на головну сторінку після успішного логіну
+        } catch (error) {
+            console.error('Login failed:', error);
         }
     };
-    if (isAuthenticated && user) {
-        return <Menu user={user}/>;
-    }
 
     return (
-        <div>
-            <form onSubmit={handleSubmit(myHandelSubmit)}>
-                <label>
-                       <input type={'text'} {...register('username')} placeholder={'Enter your username'}/>
-                </label>
-                <label>
-                       <input type={'text'} {...register('password')} placeholder={'Enter your password'}/>
-                </label>
-                <button>LOGIN</button>
-            </form>
-        </div>
+        <form onSubmit={handleLogin}>
+            <div>
+                <label>Username:</label>
+                <input
+                    type="text"
+                    value={username}
+                    onChange={(e) => setUsername(e.target.value)}
+                />
+            </div>
+            <div>
+                <label>Password:</label>
+                <input
+                    type="text"
+                    value={password}
+                    onChange={(e) => setPassword(e.target.value)}
+                />
+            </div>
+            <button type="submit">Login</button>
+        </form>
     );
 };
 
-export default AuthPage;
+export default LoginPage;

@@ -1,8 +1,4 @@
 import Link from "next/link";
-import React from "react";
-import Menu from "@/components/menu/Menu";
-import {IUser} from "@/models/usersModels/IUser";
-
 
 
 export default function Home() {
