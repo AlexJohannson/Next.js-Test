@@ -5,15 +5,20 @@ import { IUser } from "@/models/usersModels/IUser";
 import { IUserResponse } from "@/models/usersModels/IUserResponse";
 
 const MenuPage = () => {
+
     const [user, setUser] = useState<IUser | null>(null);
 
     useEffect(() => {
+
         const fetchUser = async () => {
+
             try {
+
                 const userData: IUserResponse = await getData.getUser();
                 const [firstUser] = userData.users;
                 setUser(firstUser);
-            } catch (error) {
+            }
+            catch (error) {
                 console.error('Error fetching user data:', error);
             }
         };
@@ -21,10 +26,9 @@ const MenuPage = () => {
     }, []);
 
     if (!user) {
-        return <div>
-            <h2>Loading...</h2>
-        </div>;
+        return;
     }
+
     return (
         <div>
 

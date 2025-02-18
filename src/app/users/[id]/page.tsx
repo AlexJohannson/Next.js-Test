@@ -3,9 +3,6 @@ import UserDetails from "@/components/userComponents/userDetails/UserDetails";
 
 
 
-
-
-
 const UserPage = () => {
     return (
         <div>
@@ -15,6 +12,8 @@ const UserPage = () => {
 };
 
 export default UserPage;
+
+
 
 
 

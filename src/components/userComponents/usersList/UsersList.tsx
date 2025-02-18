@@ -8,6 +8,7 @@ type UserProps = {
 }
 
 const UsersList = ({user}: UserProps) => {
+
     return (
         <div>
             <Link href={{pathname: '/users/' + user.id.toString(), query:{data: JSON.stringify(user)}}}>
@@ -20,3 +21,6 @@ const UsersList = ({user}: UserProps) => {
 };
 
 export default UsersList;
+
+
+

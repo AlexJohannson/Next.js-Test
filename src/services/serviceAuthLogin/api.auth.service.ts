@@ -21,15 +21,19 @@ axiosInstance.interceptors.request.use((request) => {
 axiosInstance.interceptors.response.use(
     response => response,
     async (error) => {
+
         const originalRequest = error.config;
+
         if (error.response.status === 401 && !originalRequest._retry) {
             originalRequest._retry = true;
+
             try {
                 await refresh();
                 const accessToken = getCookie('accessToken');
                 originalRequest.headers.Authorization = 'Bearer ' + accessToken;
                 return axiosInstance(originalRequest);
-            } catch (e) {
+            }
+            catch (e) {
                 console.error('Error refreshing token:', e);
 
                 if (typeof window !== 'undefined') {

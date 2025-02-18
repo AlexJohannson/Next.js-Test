@@ -8,12 +8,15 @@ import PaginationComponent from "@/components/paginationComponent/PaginationComp
 
 
 const UsersMap = () => {
+
     const searchParams = useSearchParams();
     const [users, setUsers] = useState<IUser[]>([]);
     const currentPage = searchParams.get('page') || '1';
 
     useEffect(() => {
+
         const fetchUsers = async () => {
+
             const usersResponse = await getData.getUsersWithPagination(currentPage);
             setUsers(usersResponse.users);
         };
@@ -21,6 +24,7 @@ const UsersMap = () => {
     }, [currentPage]);
 
     const handlePageChange = (newPage: number) => {
+
         const newParams = new URLSearchParams(searchParams);
         newParams.set('page', newPage.toString());
         window.history.pushState({}, '', `?${newParams.toString()}`);
@@ -31,9 +35,8 @@ const UsersMap = () => {
             {users.length > 0 ? (
                 users.map((user: IUser) => <UsersList key={user.id} user={user} />)
             ) : (
-                <div>
-                    <h1>No users found.</h1>
-                </div>
+                <>
+                </>
             )}
             <PaginationComponent onPageChange={handlePageChange} />
         </div>
