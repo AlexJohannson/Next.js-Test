@@ -5,6 +5,7 @@ import { IUser } from "@/models/usersModels/IUser";
 import { IRecipe } from "@/models/resipeModels/IRecipe";
 import { useParams } from 'next/navigation';
 import Link from "next/link";
+import './UserDetails.css';
 
 
 
@@ -46,7 +47,7 @@ const UserDetails = () => {
         return;
     }
     return (
-        <div>
+        <div className={'user-details-container'}>
             <h2>{user.firstName} {user.lastName}</h2>
             <h4>Password: {user.password}</h4>
             <h4>Username: {user.username}</h4>
@@ -59,14 +60,15 @@ const UserDetails = () => {
                 <ul>
                     {recipes.map((recipe) => (
                         <li key={recipe.id}>
-                            <Link href={{pathname: '/recipes/' + recipe.id.toString(), query:{data: JSON.stringify(recipe)}}}>
+                            <Link className={'user-details-link-recipe'} href={{pathname: '/recipes/' + recipe.id.toString(),
+                                query:{data: JSON.stringify(recipe)}}}>
                                 {recipe.name}
                             </Link>
                         </li>
                     ))}
                 </ul>
             ) : (
-                <div>
+                <div className={'no-recipe'}>
                     <h3>This user dont have any recipes.</h3>
                 </div>
             )}

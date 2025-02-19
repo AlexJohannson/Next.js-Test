@@ -1,0 +1,19 @@
+.no-recipe-found {
+    color: red;
+}
+.no-tag-to-recipe {
+    color: red;
+}
+.recipe-details-container {
+    width: 100%;
+    height: 592px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 30px;
+    background: lavenderblush;
+}
+.recipe-detail-link-user {
+    color: green;
+}

@@ -1,0 +1,17 @@
+.recipes-list {
+    width: 100%;
+    height: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 30px;
+    background: lavenderblush;
+    margin: 5px 0 5px 0;
+}
+.recipe-link {
+    color: green;
+}
+.link-tag {
+    color: brown;
+}

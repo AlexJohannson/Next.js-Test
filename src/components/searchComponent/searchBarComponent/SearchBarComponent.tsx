@@ -1,20 +1,24 @@
 import React from 'react';
 import SearchResultsComponent from "@/components/searchComponent/searchResultComponent/SearchResultComponent";
+import './SearchBarComponent.css';
 
-// eslint-disable-next-line @typescript-eslint/no-unsafe-function-type
-export const SearchBarComponent = ({ type, handleChangeSearchValue, searchValue }: { type: "users" | "recipes", handleChangeSearchValue: Function, searchValue: string }) => {
+
+interface SearchBarProps {
+    type: "users" | "recipes";
+    handleChangeSearchValue: (value: string) => void;
+    searchValue: string;
+}
+
+export const SearchBarComponent: React.FC<SearchBarProps> = ({ type, handleChangeSearchValue, searchValue }) => {
 
     return (
         <div className={'search-bar'}>
-            <label>
-                <input
-                    type="text"
-                    placeholder="Search......"
-                    value={searchValue}
-                    onChange={(e) => handleChangeSearchValue(e.target.value)}
-                />
+            <label className={'label-search-bar'}>
+                Enter please letter or ID
+                <input className={'input-search'} type="text" placeholder="Search......" value={searchValue}
+                    onChange={(e) => handleChangeSearchValue(e.target.value)}/>
             </label>
-            <SearchResultsComponent type={type} searchResults={[]} />
+            <SearchResultsComponent type={type} searchResults={[]}/>
         </div>
     );
 };

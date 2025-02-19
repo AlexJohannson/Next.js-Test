@@ -1,0 +1,11 @@
+.recipe-tag-filter-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    border: 3px solid brown;
+    background: lightgray;
+}
+.no-tags {
+    color: red;
+}

@@ -11,6 +11,7 @@ export const axiosInstance = axios.create({
 });
 
 axiosInstance.interceptors.request.use((request) => {
+
     if (request.method?.toLocaleUpperCase() === 'GET') {
         const accessToken = getCookie('accessToken');
         request.headers.Authorization = 'Bearer ' + accessToken;
@@ -47,7 +48,8 @@ axiosInstance.interceptors.response.use(
 
 export const refresh = async () => {
     const refreshToken = getCookie('refreshToken');
-    const { data: { accessToken, refreshToken: newRefreshToken } } = await axiosInstance.post<ITokenPair>('/auth/refresh', { refreshToken, expiresInMins: 1 });
+    const { data: { accessToken, refreshToken: newRefreshToken } } = await axiosInstance.post<ITokenPair>('/auth/refresh',
+        { refreshToken, expiresInMins: 1 });
     setCookie('accessToken', accessToken);
     setCookie('refreshToken', newRefreshToken);
 };

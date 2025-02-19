@@ -5,7 +5,7 @@ import {ICompany} from "@/models/usersModels/ICompany";
 import {ICrypto} from "@/models/usersModels/ICrypto";
 
 
-export interface  IUser{
+export interface  IUser {
   id: number;
   firstName: string;
   lastName: string;

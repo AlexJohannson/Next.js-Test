@@ -1,0 +1,11 @@
+.loginMessage {
+    width: 100%;
+    height: 692px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: lightsteelblue;
+}
+.linkLogin {
+    color: green;
+}

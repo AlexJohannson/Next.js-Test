@@ -1,0 +1,19 @@
+.user-details-container {
+    width: 100%;
+    height: 592px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 30px;
+    background: lavenderblush;
+}
+ul {
+    list-style-type: none;
+}
+.user-details-link-recipe {
+    color: green;
+}
+.no-recipe {
+    color: red;
+}

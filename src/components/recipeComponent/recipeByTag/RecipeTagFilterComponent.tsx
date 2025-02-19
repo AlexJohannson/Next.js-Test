@@ -4,6 +4,7 @@ import { useSearchParams } from "next/navigation";
 import { getData } from "@/services/userService/api.user.service";
 import { IRecipe } from "@/models/resipeModels/IRecipe";
 import RecipesList from "@/components/recipeComponent/recipesList/RecipesList";
+import './RecipeTagFilterComponent.css';
 
 const RecipeTagFilterComponent = () => {
 
@@ -40,14 +41,14 @@ const RecipeTagFilterComponent = () => {
     }
 
     return (
-        <div>
+        <div className={'recipe-tag-filter-container'}>
             <h2>Recipes for Tag: {tagItem}</h2>
             {recipesByTag.length > 0 ? (
                 recipesByTag.map((recipe, index) => (
                     <RecipesList key={index} recipe={recipe} />
                 ))
             ) : (
-                <div>
+                <div className={'no-tags'}>
                       <p>No recipes found for this tag.</p>
                 </div>
             )}

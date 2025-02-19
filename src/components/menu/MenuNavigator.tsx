@@ -6,6 +6,7 @@ import { getData } from "@/services/userService/api.user.service";
 import { IUser } from "@/models/usersModels/IUser";
 import { IUserResponse } from "@/models/usersModels/IUserResponse";
 import { deleteCookie } from 'cookies-next';
+import './MenuNavigator.css';
 
 const MenuNavigator = () => {
 
@@ -40,13 +41,13 @@ const MenuNavigator = () => {
     }
 
     return (
-        <div>
-            <nav>
+        <div className={'menu-header'}>
+                <nav>
                     <ul>
-                        <li><Link href="/">HOME</Link></li>
-                        <li><Link href="/users">USERS</Link></li>
-                        <li><Link href="/recipes">RECIPES</Link></li>
-                        <button onClick={handleLogout}>LOGOUT</button>
+                        <li><Link className={'link-menu'} href="/menu">HOME</Link></li>
+                        <li><Link className={'link-menu'} href="/users">USERS</Link></li>
+                        <li><Link className={'link-menu'} href="/recipes">RECIPES</Link></li>
+                        <button className={'button-logout'} onClick={handleLogout}>LOGOUT</button>
                     </ul>
                 </nav>
         </div>

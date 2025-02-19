@@ -1,0 +1,54 @@
+.login-container {
+    width: 100%;
+    height: 692px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.login-form {
+    width: 400px;
+    height: 450px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 30px;
+    background: lightsteelblue;
+    border-radius: 15px;
+}
+.error-message {
+    width: 400px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: red;
+}
+.error-message-text {
+    color: red;
+}
+.label-input {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 10px;
+}
+.input-login {
+    width: 250px;
+    height: 30px;
+    background: lavender;
+    border: none;
+}
+.input-login::placeholder {
+    text-align: center;
+}
+.login-button {
+    width: 120px;
+    height: 30px;
+    cursor: pointer;
+    border: none;
+    background: brown;
+    color: white;
+    border-radius: 10px;
+}

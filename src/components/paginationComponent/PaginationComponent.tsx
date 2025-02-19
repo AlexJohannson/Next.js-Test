@@ -1,5 +1,6 @@
 'use client';
 import { useSearchParams, usePathname } from 'next/navigation';
+import './PaginationComponent.css';
 
 const PaginationComponent = ({ onPageChange }: { onPageChange: (page: number) => void }) => {
 
@@ -28,7 +29,7 @@ const PaginationComponent = ({ onPageChange }: { onPageChange: (page: number) =>
     };
 
     return (
-        <div>
+        <div className={'pagination-component'}>
             <button className={'previous'} onClick={handlePrevious}>PREVIOUS</button>
             <button className={'next'} onClick={handleNext}>NEXT</button>
         </div>

@@ -5,6 +5,7 @@ import { IRecipe } from "@/models/resipeModels/IRecipe";
 import { IUser } from "@/models/usersModels/IUser";
 import { useParams } from 'next/navigation';
 import Link from "next/link";
+import './RecipeDetails.css';
 
 const RecipeDetails = () => {
 
@@ -45,13 +46,13 @@ const RecipeDetails = () => {
     }
 
     if (!recipe) {
-        return <div>
+        return <div className={'no-recipe-found'}>
                      <h3>No recipe found.</h3>
                </div>;
     }
 
     return (
-        <div>
+        <div className={'recipe-details-container'}>
             <h2>Name: {recipe.name}</h2>
             <h3>Cuisine: {recipe.cuisine}</h3>
             <h3>Cook time (minutes): {recipe.cookTimeMinutes}</h3>
@@ -61,7 +62,7 @@ const RecipeDetails = () => {
             {user && (
                 <div>
                     <h3>Created by:</h3>
-                    <Link href={`/users/${user.id}`}>
+                    <Link  className={'recipe-detail-link-user'} href={`/users/${user.id}`}>
                         {user.firstName} {user.lastName}
                     </Link>
                 </div>
@@ -75,7 +76,7 @@ const RecipeDetails = () => {
                         ))}
                     </ul>
                 ) : (
-                    <div>
+                    <div className={'no-tag-to-recipe'}>
                           <p>No tags available to recipes</p>
                     </div>
                 )}

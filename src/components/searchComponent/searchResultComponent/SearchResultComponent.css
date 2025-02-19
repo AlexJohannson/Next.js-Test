@@ -1,0 +1,15 @@
+.search-result-container {
+    width: 100%;
+    background: lightsteelblue;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+.search-result {
+    padding: 5px 0 5px 0;
+}
+.search-link-result {
+    font-size: 20px;
+    color: brown;
+}
